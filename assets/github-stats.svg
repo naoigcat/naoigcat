@@ -1,53 +1,95 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="760" height="430" viewBox="0 0 760 430" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="690" height="332" viewBox="0 0 690 332" role="img" aria-labelledby="title desc">
     <title id="title">naoigcat GitHub public repository stats</title>
-    <desc id="desc">Public commits, pull requests, issues, and contribution totals for naoigcat.</desc>
+    <desc id="desc">Public commits, pull requests, issues, and contribution totals for naoigcat, with top repository languages.</desc>
     <style>
         .bg { fill: #ffffff; }
         .border { fill: none; stroke: #d0d7de; }
-        .title { fill: #24292f; font: 700 24px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
-        .subtitle { fill: #57606a; font: 500 13px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
-        .column { fill: #6e7781; font: 700 13px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
-        .metric { fill: #24292f; font: 700 16px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
-        .value { fill: #0969da; font: 700 23px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+        .title { fill: #24292f; font: 700 20px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+        .section { fill: #24292f; font: 700 14px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+        .column { fill: #6e7781; font: 700 11px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+        .metric { fill: #24292f; font: 700 13px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+        .value { fill: #0969da; font: 700 18px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+        .language-name { fill: #24292f; font: 600 12px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+        .language-percent { fill: #57606a; font: 600 11px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+        .language-bar-bg { fill: #eaeef2; }
+        .empty { fill: #6e7781; font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
         .divider { stroke: #d8dee4; stroke-width: 1; }
-        .footnote { fill: #6e7781; font: 500 12px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+        .footnote { fill: #6e7781; font: 500 10px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
     </style>
-    <rect class="bg" x="0.5" y="0.5" width="759" height="429" rx="8" />
-    <rect class="border" x="0.5" y="0.5" width="759" height="429" rx="8" />
-    <text x="42" y="48" class="title">GitHub Stats</text>
-    <text x="42" y="96" class="column">Metric</text>
-    <text x="292" y="96" class="column" text-anchor="end">Total</text>
-    <text x="468" y="96" class="column" text-anchor="end">2026</text>
-    <text x="624" y="96" class="column" text-anchor="end">2025</text>
+    <rect class="bg" x="0.5" y="0.5" width="689" height="331" rx="6" />
+    <rect class="border" x="0.5" y="0.5" width="689" height="331" rx="6" />
+    <text x="30" y="42" class="title">GitHub Stats</text>
+    <text x="30" y="82" class="column">Metric</text>
+    <text x="214" y="82" class="column" text-anchor="end">Total</text>
+    <text x="310" y="82" class="column" text-anchor="end">2026</text>
+    <text x="390" y="82" class="column" text-anchor="end">2025</text>
+    <text x="432" y="82" class="section">Top Languages</text>
+    <line x1="410" y1="60" x2="410" y2="274" class="divider" />
 
     <g>
-        <line x1="42" y1="108" x2="718" y2="108" class="divider" />
-        <text x="42" y="145" class="metric">Commits</text>
-        <text x="292" y="147" class="value" text-anchor="end">819</text>
-        <text x="468" y="147" class="value" text-anchor="end">111</text>
-        <text x="624" y="147" class="value" text-anchor="end">44</text>
+        <line x1="30" y1="92" x2="400" y2="92" class="divider" />
+        <text x="30" y="129" class="metric">Commits</text>
+        <text x="214" y="131" class="value" text-anchor="end">820</text>
+        <text x="310" y="131" class="value" text-anchor="end">112</text>
+        <text x="390" y="131" class="value" text-anchor="end">44</text>
     </g>
     <g>
-        <line x1="42" y1="176" x2="718" y2="176" class="divider" />
-        <text x="42" y="213" class="metric">Pull Requests</text>
-        <text x="292" y="215" class="value" text-anchor="end">4</text>
-        <text x="468" y="215" class="value" text-anchor="end">0</text>
-        <text x="624" y="215" class="value" text-anchor="end">0</text>
+        <line x1="30" y1="138" x2="400" y2="138" class="divider" />
+        <text x="30" y="175" class="metric">Pull Requests</text>
+        <text x="214" y="177" class="value" text-anchor="end">4</text>
+        <text x="310" y="177" class="value" text-anchor="end">0</text>
+        <text x="390" y="177" class="value" text-anchor="end">0</text>
     </g>
     <g>
-        <line x1="42" y1="244" x2="718" y2="244" class="divider" />
-        <text x="42" y="281" class="metric">Issues</text>
-        <text x="292" y="283" class="value" text-anchor="end">5</text>
-        <text x="468" y="283" class="value" text-anchor="end">0</text>
-        <text x="624" y="283" class="value" text-anchor="end">0</text>
+        <line x1="30" y1="184" x2="400" y2="184" class="divider" />
+        <text x="30" y="221" class="metric">Issues</text>
+        <text x="214" y="223" class="value" text-anchor="end">5</text>
+        <text x="310" y="223" class="value" text-anchor="end">0</text>
+        <text x="390" y="223" class="value" text-anchor="end">0</text>
     </g>
     <g>
-        <line x1="42" y1="312" x2="718" y2="312" class="divider" />
-        <text x="42" y="349" class="metric">Contributions</text>
-        <text x="292" y="351" class="value" text-anchor="end">828</text>
-        <text x="468" y="351" class="value" text-anchor="end">111</text>
-        <text x="624" y="351" class="value" text-anchor="end">44</text>
+        <line x1="30" y1="230" x2="400" y2="230" class="divider" />
+        <text x="30" y="267" class="metric">Contributions</text>
+        <text x="214" y="269" class="value" text-anchor="end">829</text>
+        <text x="310" y="269" class="value" text-anchor="end">112</text>
+        <text x="390" y="269" class="value" text-anchor="end">44</text>
     </g>
-    <line x1="42" y1="370" x2="718" y2="370" class="divider" />
-    <text x="42" y="400" class="footnote">Updated May 4, 2026 (Asia/Tokyo) · Contributions are commits + pull requests + issues.</text>
+
+    <g>
+        <circle cx="437" cy="108" r="5" fill="#701516" />
+        <text x="450" y="112" class="language-name">Ruby</text>
+        <text x="660" y="112" class="language-percent" text-anchor="end">48%</text>
+        <rect x="432" y="121" width="220" height="6" rx="3" class="language-bar-bg" />
+        <rect x="432" y="121" width="107" height="6" rx="3" fill="#701516" />
+    </g>
+    <g>
+        <circle cx="437" cy="142" r="5" fill="#3178c6" />
+        <text x="450" y="146" class="language-name">TypeScript</text>
+        <text x="660" y="146" class="language-percent" text-anchor="end">12%</text>
+        <rect x="432" y="155" width="220" height="6" rx="3" class="language-bar-bg" />
+        <rect x="432" y="155" width="27" height="6" rx="3" fill="#3178c6" />
+    </g>
+    <g>
+        <circle cx="437" cy="176" r="5" fill="#384d54" />
+        <text x="450" y="180" class="language-name">Dockerfile</text>
+        <text x="660" y="180" class="language-percent" text-anchor="end">10%</text>
+        <rect x="432" y="189" width="220" height="6" rx="3" class="language-bar-bg" />
+        <rect x="432" y="189" width="22" height="6" rx="3" fill="#384d54" />
+    </g>
+    <g>
+        <circle cx="437" cy="210" r="5" fill="#f05138" />
+        <text x="450" y="214" class="language-name">Swift</text>
+        <text x="660" y="214" class="language-percent" text-anchor="end">8.0%</text>
+        <rect x="432" y="223" width="220" height="6" rx="3" class="language-bar-bg" />
+        <rect x="432" y="223" width="18" height="6" rx="3" fill="#f05138" />
+    </g>
+    <g>
+        <circle cx="437" cy="244" r="5" fill="#f1e05a" />
+        <text x="450" y="248" class="language-name">JavaScript</text>
+        <text x="660" y="248" class="language-percent" text-anchor="end">6.9%</text>
+        <rect x="432" y="257" width="220" height="6" rx="3" class="language-bar-bg" />
+        <rect x="432" y="257" width="15" height="6" rx="3" fill="#f1e05a" />
+    </g>
+    <line x1="30" y1="278" x2="660" y2="278" class="divider" />
+    <text x="30" y="302" class="footnote">Updated May 4, 2026 (Asia/Tokyo) · Public activity and owned repository languages.</text>
 </svg>
