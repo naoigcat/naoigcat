@@ -45,7 +45,7 @@ const ranges = {
         end: `${previousYear}-12-31`,
     },
 };
-const excludedCommitRepositories = ["naoigcat/naoigcat"];
+const excludedProfileRepositories = ["naoigcat/naoigcat"];
 
 // Keep collection and rendering in one flow so each scheduled run updates the SVG and README together.
 async function main() {
@@ -123,8 +123,8 @@ function searchQuery(kind, range) {
         // GitHub's commit search has no public-only qualifier. The default
         // Actions token avoids counting private repositories for this profile.
         parts.push(`author:${username}`);
-        // Exclude the profile repository so README automation does not inflate activity totals.
-        parts.push(...excludedCommitRepositories.map((repo) => `-repo:${repo}`));
+        // Exclude profile automation repositories so generated README work does not inflate activity totals.
+        parts.push(...excludedProfileRepositories.map((repo) => `-repo:${repo}`));
         if (range) {
             parts.push(`committer-date:${range.start}..${range.end}`);
         }
@@ -143,7 +143,9 @@ function searchQuery(kind, range) {
 
 // Aggregate owned repository languages so forks do not drown out the user's own profile.
 async function fetchLanguageRanking() {
-    const repos = (await fetchOwnedRepositories()).filter((repo) => !repo.fork);
+    const repos = (await fetchOwnedRepositories()).filter(
+        (repo) => !repo.fork && !excludedProfileRepositories.includes(repo.full_name),
+    );
     const totals = new Map();
 
     await Promise.all(
