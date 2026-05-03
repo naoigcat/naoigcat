@@ -45,6 +45,7 @@ const ranges = {
         end: `${previousYear}-12-31`,
     },
 };
+const excludedCommitRepositories = ["naoigcat/naoigcat"];
 
 // Keep collection and rendering in one flow so each scheduled run updates the SVG and README together.
 async function main() {
@@ -122,6 +123,8 @@ function searchQuery(kind, range) {
         // GitHub's commit search has no public-only qualifier. The default
         // Actions token avoids counting private repositories for this profile.
         parts.push(`author:${username}`);
+        // Exclude the profile repository so README automation does not inflate activity totals.
+        parts.push(...excludedCommitRepositories.map((repo) => `-repo:${repo}`));
         if (range) {
             parts.push(`committer-date:${range.start}..${range.end}`);
         }
