@@ -1,0 +1,42 @@
+name: Update GitHub Stats
+
+on:
+  schedule:
+    - cron: "0 20 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Generate stats SVG
+        run: node scripts/generate-github-stats.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_STATS_USERNAME: ${{ github.repository_owner }}
+
+      - name: Commit updated stats
+        run: |
+          git add README.md assets/github-stats.svg
+
+          if git diff --cached --quiet; then
+            echo "No changes."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "GitHub統計SVGを更新する"
+          git push
