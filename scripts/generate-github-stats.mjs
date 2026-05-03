@@ -223,18 +223,18 @@ async function writeStatsSvg(stats, languages) {
 
 // Render text in English so the generated SVG remains language-consistent for profile viewers.
 function renderSvg(stats, languages) {
-    const width = 690;
+    const width = 1012;
     const height = 332;
     const x = 30;
     const headerY = 82;
     const rowHeight = 46;
-    const statsDividerX = 400;
-    const languageX = 432;
-    const languageWidth = 220;
+    const statsDividerX = 560;
+    const languageX = 602;
+    const languageWidth = 350;
     const columns = [
-        { label: "Total", key: "total", x: 214 },
-        { label: `${currentYear}`, key: "current", x: 310 },
-        { label: `${previousYear}`, key: "previous", x: 390 },
+        { label: "Total", key: "total", x: 300 },
+        { label: `${currentYear}`, key: "current", x: 430 },
+        { label: `${previousYear}`, key: "previous", x: 550 },
     ];
 
     const rows = stats
