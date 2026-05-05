@@ -29,8 +29,8 @@
     <g>
         <line x1="30" y1="92" x2="560" y2="92" class="divider" />
         <text x="30" y="129" class="metric">Commits</text>
-        <text x="300" y="131" class="value" text-anchor="end">842</text>
-        <text x="430" y="131" class="value" text-anchor="end">137</text>
+        <text x="300" y="131" class="value" text-anchor="end">861</text>
+        <text x="430" y="131" class="value" text-anchor="end">156</text>
         <text x="550" y="131" class="value" text-anchor="end">44</text>
     </g>
     <g>
@@ -50,24 +50,24 @@
     <g>
         <line x1="30" y1="230" x2="560" y2="230" class="divider" />
         <text x="30" y="267" class="metric">Contributions</text>
-        <text x="300" y="269" class="value" text-anchor="end">851</text>
-        <text x="430" y="269" class="value" text-anchor="end">137</text>
+        <text x="300" y="269" class="value" text-anchor="end">870</text>
+        <text x="430" y="269" class="value" text-anchor="end">156</text>
         <text x="550" y="269" class="value" text-anchor="end">44</text>
     </g>
 
     <g>
         <circle cx="607" cy="108" r="5" fill="#701516" />
         <text x="620" y="112" class="language-name">Ruby</text>
-        <text x="982" y="112" class="language-percent" text-anchor="end">53%</text>
+        <text x="982" y="112" class="language-percent" text-anchor="end">54%</text>
         <rect x="602" y="121" width="350" height="6" rx="3" class="language-bar-bg" />
-        <rect x="602" y="121" width="186" height="6" rx="3" fill="#701516" />
+        <rect x="602" y="121" width="188" height="6" rx="3" fill="#701516" />
     </g>
     <g>
         <circle cx="607" cy="142" r="5" fill="#3178c6" />
         <text x="620" y="146" class="language-name">TypeScript</text>
         <text x="982" y="146" class="language-percent" text-anchor="end">13%</text>
         <rect x="602" y="155" width="350" height="6" rx="3" class="language-bar-bg" />
-        <rect x="602" y="155" width="45" height="6" rx="3" fill="#3178c6" />
+        <rect x="602" y="155" width="44" height="6" rx="3" fill="#3178c6" />
     </g>
     <g>
         <circle cx="607" cy="176" r="5" fill="#384d54" />
@@ -79,17 +79,17 @@
     <g>
         <circle cx="607" cy="210" r="5" fill="#f05138" />
         <text x="620" y="214" class="language-name">Swift</text>
-        <text x="982" y="214" class="language-percent" text-anchor="end">8.3%</text>
+        <text x="982" y="214" class="language-percent" text-anchor="end">8.2%</text>
         <rect x="602" y="223" width="350" height="6" rx="3" class="language-bar-bg" />
         <rect x="602" y="223" width="29" height="6" rx="3" fill="#f05138" />
     </g>
     <g>
         <circle cx="607" cy="244" r="5" fill="#4f5d95" />
         <text x="620" y="248" class="language-name">PHP</text>
-        <text x="982" y="248" class="language-percent" text-anchor="end">4.0%</text>
+        <text x="982" y="248" class="language-percent" text-anchor="end">4.1%</text>
         <rect x="602" y="257" width="350" height="6" rx="3" class="language-bar-bg" />
         <rect x="602" y="257" width="14" height="6" rx="3" fill="#4f5d95" />
     </g>
     <line x1="30" y1="278" x2="982" y2="278" class="divider" />
-    <text x="30" y="302" class="footnote">Updated May 5, 2026 (Asia/Tokyo) · Public activity and owned repository languages.</text>
+    <text x="30" y="302" class="footnote">Updated May 6, 2026 (Asia/Tokyo) · Public activity and owned repository languages.</text>
 </svg>
