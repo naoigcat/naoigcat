@@ -12,18 +12,6 @@ const svgPath = process.env.GITHUB_STATS_SVG_PATH || "assets/github-stats.svg";
 const readmePath = process.env.GITHUB_STATS_README_PATH || "README.md";
 const timeZone = process.env.GITHUB_STATS_TIME_ZONE || "Asia/Tokyo";
 
-if (!username) {
-    throw new Error(
-        "GITHUB_STATS_USERNAME, GITHUB_REPOSITORY_OWNER, or a username argument is required.",
-    );
-}
-
-if (!token) {
-    throw new Error("GITHUB_TOKEN or GH_TOKEN is required to query GitHub API.");
-}
-
-assertValidGitHubLogin(username);
-
 const languageFetchConcurrency = clampInt(
     process.env.GITHUB_STATS_LANGUAGE_CONCURRENCY,
     8,
@@ -61,6 +49,18 @@ const excludedProfileRepositories = ["naoigcat/naoigcat", "naoigcat/naoigcat.git
 const GITHUB_USERNAME_MAX_LENGTH = 39;
 /** Matches GitHub login rules for API paths and search (alphanumeric, single internal hyphens). */
 const GITHUB_USERNAME_PATTERN = /^[a-zA-Z0-9](?:[a-zA-Z0-9]|-(?=[a-zA-Z0-9]))*$/;
+
+if (!username) {
+    throw new Error(
+        "GITHUB_STATS_USERNAME, GITHUB_REPOSITORY_OWNER, or a username argument is required.",
+    );
+}
+
+if (!token) {
+    throw new Error("GITHUB_TOKEN or GH_TOKEN is required to query GitHub API.");
+}
+
+assertValidGitHubLogin(username);
 
 function assertValidGitHubLogin(login) {
     if (typeof login !== "string") {
