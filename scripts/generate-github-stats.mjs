@@ -22,6 +22,15 @@ if (!token) {
     throw new Error("GITHUB_TOKEN or GH_TOKEN is required to query GitHub API.");
 }
 
+assertValidGitHubLogin(username);
+
+const languageFetchConcurrency = clampInt(
+    process.env.GITHUB_STATS_LANGUAGE_CONCURRENCY,
+    8,
+    1,
+    20,
+);
+
 const currentYear = Number(
     new Intl.DateTimeFormat("en", { timeZone, year: "numeric" }).format(new Date()),
 );
@@ -48,6 +57,73 @@ const ranges = {
 // Owner/profile automation repos: omitted from commit search and owned-repo language rollup;
 // repositories named *.github.io are also omitted from PR/issue searches (Pages automation).
 const excludedProfileRepositories = ["naoigcat/naoigcat", "naoigcat/naoigcat.github.io"];
+
+const GITHUB_USERNAME_MAX_LENGTH = 39;
+/** Matches GitHub login rules for API paths and search (alphanumeric, single internal hyphens). */
+const GITHUB_USERNAME_PATTERN = /^[a-zA-Z0-9](?:[a-zA-Z0-9]|-(?=[a-zA-Z0-9]))*$/;
+
+function assertValidGitHubLogin(login) {
+    if (typeof login !== "string") {
+        throw new Error("GitHub username must be a string.");
+    }
+    if (login.length < 1 || login.length > GITHUB_USERNAME_MAX_LENGTH) {
+        throw new Error(
+            `GitHub username must be between 1 and ${GITHUB_USERNAME_MAX_LENGTH} characters.`,
+        );
+    }
+    if (!GITHUB_USERNAME_PATTERN.test(login)) {
+        throw new Error("GitHub username contains invalid characters.");
+    }
+}
+
+function clampInt(raw, fallback, min, max) {
+    const parsed = Number.parseInt(String(raw ?? ""), 10);
+    if (!Number.isFinite(parsed)) {
+        return fallback;
+    }
+    return Math.min(max, Math.max(min, parsed));
+}
+
+function githubApiHeaders() {
+    const userAgent =
+        process.env.GITHUB_STATS_USER_AGENT || "profiles-generate-github-stats (Node.js)";
+    return {
+        Accept: "application/vnd.github+json",
+        Authorization: `Bearer ${token}`,
+        "X-GitHub-Api-Version": "2022-11-28",
+        "User-Agent": userAgent,
+    };
+}
+
+function truncateForErrorMessage(text, maxLength = 2000) {
+    if (text.length <= maxLength) {
+        return text;
+    }
+    return `${text.slice(0, maxLength)}… (truncated)`;
+}
+
+async function mapWithConcurrency(items, concurrency, mapper) {
+    if (items.length === 0) {
+        return [];
+    }
+    const workers = Math.max(1, Math.min(concurrency, items.length));
+    const results = new Array(items.length);
+    let index = 0;
+
+    async function worker() {
+        while (true) {
+            const current = index;
+            index += 1;
+            if (current >= items.length) {
+                break;
+            }
+            results[current] = await mapper(items[current], current);
+        }
+    }
+
+    await Promise.all(Array.from({ length: workers }, () => worker()));
+    return results;
+}
 
 // Keep collection and rendering in one flow so each scheduled run updates the SVG and README together.
 async function main() {
@@ -93,18 +169,12 @@ async function fetchSearchCount(kind, range) {
     url.searchParams.set("q", searchQuery(kind, range));
     url.searchParams.set("per_page", "1");
 
-    const response = await fetch(url, {
-        headers: {
-            Accept: "application/vnd.github+json",
-            Authorization: `Bearer ${token}`,
-            "X-GitHub-Api-Version": "2022-11-28",
-        },
-    });
+    const response = await fetch(url, { headers: githubApiHeaders() });
 
     if (!response.ok) {
         const body = await response.text();
         throw new Error(
-            `GitHub API request failed (${response.status}) for ${url}: ${body}`,
+            `GitHub API request failed (${response.status}) for ${url}: ${truncateForErrorMessage(body)}`,
         );
     }
 
@@ -120,6 +190,8 @@ function searchEndpoint(kind) {
         case "pullRequest":
         case "issue":
             return "issues";
+        default:
+            throw new Error(`Unknown GitHub search metric: ${kind}`);
     }
 }
 
@@ -148,6 +220,8 @@ function searchQuery(kind, range) {
                 parts.push(`created:${range.start}..${range.end}`);
             }
             break;
+        default:
+            throw new Error(`Unknown GitHub search metric: ${kind}`);
     }
     return parts.join(" ");
 }
@@ -159,15 +233,17 @@ async function fetchLanguageRanking() {
     );
     const totals = new Map();
 
-    await Promise.all(
-        repos.map(async (repo) => {
-            const languages = await fetchJson(repo.languages_url);
-
-            for (const [language, bytes] of Object.entries(languages)) {
-                totals.set(language, (totals.get(language) ?? 0) + bytes);
-            }
-        }),
+    const languageMaps = await mapWithConcurrency(
+        repos,
+        languageFetchConcurrency,
+        (repo) => fetchJson(repo.languages_url),
     );
+
+    for (const languages of languageMaps) {
+        for (const [language, bytes] of Object.entries(languages)) {
+            totals.set(language, (totals.get(language) ?? 0) + bytes);
+        }
+    }
 
     const totalBytes = [...totals.values()].reduce((sum, bytes) => sum + bytes, 0);
 
@@ -204,18 +280,29 @@ async function fetchOwnedRepositories() {
     }
 }
 
+function assertTrustedGitHubApiUrl(url) {
+    const href = url instanceof URL ? url.href : String(url);
+    let parsed;
+    try {
+        parsed = new URL(href);
+    } catch {
+        throw new Error("Invalid GitHub API URL.");
+    }
+    if (parsed.protocol !== "https:" || parsed.hostname !== "api.github.com") {
+        throw new Error("Only https://api.github.com requests are allowed.");
+    }
+}
+
 async function fetchJson(url) {
-    const response = await fetch(url, {
-        headers: {
-            Accept: "application/vnd.github+json",
-            Authorization: `Bearer ${token}`,
-            "X-GitHub-Api-Version": "2022-11-28",
-        },
-    });
+    assertTrustedGitHubApiUrl(url);
+
+    const response = await fetch(url, { headers: githubApiHeaders() });
 
     if (!response.ok) {
         const body = await response.text();
-        throw new Error(`GitHub API request failed (${response.status}) for ${url}: ${body}`);
+        throw new Error(
+            `GitHub API request failed (${response.status}) for ${url}: ${truncateForErrorMessage(body)}`,
+        );
     }
 
     return response.json();

@@ -1,5 +1,9 @@
 name: Update GitHub Stats
 
+concurrency:
+  group: update-github-stats
+  cancel-in-progress: true
+
 on:
   schedule:
     - cron: "0 20 * * *"
