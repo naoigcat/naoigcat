@@ -45,7 +45,9 @@ const ranges = {
         end: `${previousYear}-12-31`,
     },
 };
-const excludedProfileRepositories = ["naoigcat/naoigcat"];
+// Owner/profile automation repos: omitted from commit search and owned-repo language rollup;
+// repositories named *.github.io are also omitted from PR/issue searches (Pages automation).
+const excludedProfileRepositories = ["naoigcat/naoigcat", "naoigcat/naoigcat.github.io"];
 
 // Keep collection and rendering in one flow so each scheduled run updates the SVG and README together.
 async function main() {
@@ -112,32 +114,41 @@ async function fetchSearchCount(kind, range) {
 
 // Centralize the endpoint split because commit search uses a different GitHub resource.
 function searchEndpoint(kind) {
-    return kind === "commit" ? "commits" : "issues";
+    switch (kind) {
+        case "commit":
+            return "commits";
+        case "pullRequest":
+        case "issue":
+            return "issues";
+    }
 }
 
 // Build conservative public-profile queries so private activity is not surfaced in the SVG.
 function searchQuery(kind, range) {
     const parts = [];
-
-    if (kind === "commit") {
-        // GitHub's commit search has no public-only qualifier. The default
-        // Actions token avoids counting private repositories for this profile.
-        parts.push(`author:${username}`);
-        // Exclude profile automation repositories so generated README work does not inflate activity totals.
-        parts.push(...excludedProfileRepositories.map((repo) => `-repo:${repo}`));
-        if (range) {
-            parts.push(`committer-date:${range.start}..${range.end}`);
-        }
-        return parts.join(" ");
-    }
-
     parts.push(`author:${username}`);
-    parts.push(kind === "pullRequest" ? "type:pr" : "type:issue");
     parts.push("is:public");
-    if (range) {
-        parts.push(`created:${range.start}..${range.end}`);
+    // Omit owner/profile automation repos (see excludedProfileRepositories).
+    parts.push(...excludedProfileRepositories.map((repo) => `-repo:${repo}`));
+    switch (kind) {
+        case "commit":
+            if (range) {
+                parts.push(`committer-date:${range.start}..${range.end}`);
+            }
+            break;
+        case "pullRequest":
+            parts.push("is:pr");
+            if (range) {
+                parts.push(`created:${range.start}..${range.end}`);
+            }
+            break;
+        case "issue":
+            parts.push("is:issue");
+            if (range) {
+                parts.push(`created:${range.start}..${range.end}`);
+            }
+            break;
     }
-
     return parts.join(" ");
 }
 
