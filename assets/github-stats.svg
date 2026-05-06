@@ -29,8 +29,8 @@
     <g>
         <line x1="30" y1="92" x2="560" y2="92" class="divider" />
         <text x="30" y="129" class="metric">Commits</text>
-        <text x="300" y="131" class="value" text-anchor="end">621</text>
-        <text x="430" y="131" class="value" text-anchor="end">109</text>
+        <text x="300" y="131" class="value" text-anchor="end">637</text>
+        <text x="430" y="131" class="value" text-anchor="end">125</text>
         <text x="550" y="131" class="value" text-anchor="end">39</text>
     </g>
     <g>
@@ -50,8 +50,8 @@
     <g>
         <line x1="30" y1="230" x2="560" y2="230" class="divider" />
         <text x="30" y="267" class="metric">Contributions</text>
-        <text x="300" y="269" class="value" text-anchor="end">630</text>
-        <text x="430" y="269" class="value" text-anchor="end">109</text>
+        <text x="300" y="269" class="value" text-anchor="end">646</text>
+        <text x="430" y="269" class="value" text-anchor="end">125</text>
         <text x="550" y="269" class="value" text-anchor="end">39</text>
     </g>
 
@@ -67,7 +67,7 @@
         <text x="620" y="146" class="language-name">TypeScript</text>
         <text x="982" y="146" class="language-percent" text-anchor="end">13%</text>
         <rect x="602" y="155" width="350" height="6" rx="3" class="language-bar-bg" />
-        <rect x="602" y="155" width="46" height="6" rx="3" fill="#3178c6" />
+        <rect x="602" y="155" width="45" height="6" rx="3" fill="#3178c6" />
     </g>
     <g>
         <circle cx="607" cy="176" r="5" fill="#384d54" />
@@ -91,5 +91,5 @@
         <rect x="602" y="257" width="15" height="6" rx="3" fill="#4f5d95" />
     </g>
     <line x1="30" y1="278" x2="982" y2="278" class="divider" />
-    <text x="30" y="302" class="footnote">Updated May 6, 2026 (Asia/Tokyo) · Public activity and owned repository languages.</text>
+    <text x="30" y="302" class="footnote">Updated May 7, 2026 (Asia/Tokyo) · Public activity and owned repository languages.</text>
 </svg>
