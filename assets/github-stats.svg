@@ -43,15 +43,15 @@
     <g>
         <line x1="30" y1="184" x2="560" y2="184" class="divider" />
         <text x="30" y="221" class="metric">Issues</text>
-        <text x="300" y="223" class="value" text-anchor="end">5</text>
-        <text x="430" y="223" class="value" text-anchor="end">0</text>
+        <text x="300" y="223" class="value" text-anchor="end">6</text>
+        <text x="430" y="223" class="value" text-anchor="end">1</text>
         <text x="550" y="223" class="value" text-anchor="end">0</text>
     </g>
     <g>
         <line x1="30" y1="230" x2="560" y2="230" class="divider" />
         <text x="30" y="267" class="metric">Contributions</text>
-        <text x="300" y="269" class="value" text-anchor="end">651</text>
-        <text x="430" y="269" class="value" text-anchor="end">130</text>
+        <text x="300" y="269" class="value" text-anchor="end">652</text>
+        <text x="430" y="269" class="value" text-anchor="end">131</text>
         <text x="550" y="269" class="value" text-anchor="end">39</text>
     </g>
 
@@ -91,5 +91,5 @@
         <rect x="602" y="257" width="13" height="6" rx="3" fill="#4f5d95" />
     </g>
     <line x1="30" y1="278" x2="982" y2="278" class="divider" />
-    <text x="30" y="302" class="footnote">Updated May 10, 2026 (Asia/Tokyo) · Public activity and owned repository languages.</text>
+    <text x="30" y="302" class="footnote">Updated May 11, 2026 (Asia/Tokyo) · Public activity and owned repository languages.</text>
 </svg>
