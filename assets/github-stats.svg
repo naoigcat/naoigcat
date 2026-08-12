@@ -29,8 +29,8 @@
     <g>
         <line x1="30" y1="92" x2="560" y2="92" class="divider" />
         <text x="30" y="129" class="metric">Commits</text>
-        <text x="300" y="131" class="value" text-anchor="end">779</text>
-        <text x="430" y="131" class="value" text-anchor="end">266</text>
+        <text x="300" y="131" class="value" text-anchor="end">797</text>
+        <text x="430" y="131" class="value" text-anchor="end">284</text>
         <text x="550" y="131" class="value" text-anchor="end">39</text>
     </g>
     <g>
@@ -50,46 +50,46 @@
     <g>
         <line x1="30" y1="230" x2="560" y2="230" class="divider" />
         <text x="30" y="267" class="metric">Contributions</text>
-        <text x="300" y="269" class="value" text-anchor="end">794</text>
-        <text x="430" y="269" class="value" text-anchor="end">270</text>
+        <text x="300" y="269" class="value" text-anchor="end">812</text>
+        <text x="430" y="269" class="value" text-anchor="end">288</text>
         <text x="550" y="269" class="value" text-anchor="end">41</text>
     </g>
 
     <g>
         <circle cx="607" cy="108" r="5" fill="#701516" />
         <text x="620" y="112" class="language-name">Ruby</text>
-        <text x="982" y="112" class="language-percent" text-anchor="end">35%</text>
+        <text x="982" y="112" class="language-percent" text-anchor="end">44%</text>
         <rect x="602" y="121" width="350" height="6" rx="3" class="language-bar-bg" />
-        <rect x="602" y="121" width="124" height="6" rx="3" fill="#701516" />
+        <rect x="602" y="121" width="153" height="6" rx="3" fill="#701516" />
     </g>
     <g>
         <circle cx="607" cy="142" r="5" fill="#f1e05a" />
         <text x="620" y="146" class="language-name">JavaScript</text>
-        <text x="982" y="146" class="language-percent" text-anchor="end">29%</text>
+        <text x="982" y="146" class="language-percent" text-anchor="end">24%</text>
         <rect x="602" y="155" width="350" height="6" rx="3" class="language-bar-bg" />
-        <rect x="602" y="155" width="100" height="6" rx="3" fill="#f1e05a" />
+        <rect x="602" y="155" width="83" height="6" rx="3" fill="#f1e05a" />
     </g>
     <g>
         <circle cx="607" cy="176" r="5" fill="#3178c6" />
         <text x="620" y="180" class="language-name">TypeScript</text>
-        <text x="982" y="180" class="language-percent" text-anchor="end">22%</text>
+        <text x="982" y="180" class="language-percent" text-anchor="end">18%</text>
         <rect x="602" y="189" width="350" height="6" rx="3" class="language-bar-bg" />
-        <rect x="602" y="189" width="77" height="6" rx="3" fill="#3178c6" />
+        <rect x="602" y="189" width="64" height="6" rx="3" fill="#3178c6" />
     </g>
     <g>
         <circle cx="607" cy="210" r="5" fill="#384d54" />
         <text x="620" y="214" class="language-name">Dockerfile</text>
-        <text x="982" y="214" class="language-percent" text-anchor="end">4.8%</text>
+        <text x="982" y="214" class="language-percent" text-anchor="end">4.0%</text>
         <rect x="602" y="223" width="350" height="6" rx="3" class="language-bar-bg" />
-        <rect x="602" y="223" width="17" height="6" rx="3" fill="#384d54" />
+        <rect x="602" y="223" width="14" height="6" rx="3" fill="#384d54" />
     </g>
     <g>
         <circle cx="607" cy="244" r="5" fill="#89e051" />
         <text x="620" y="248" class="language-name">Shell</text>
-        <text x="982" y="248" class="language-percent" text-anchor="end">3.1%</text>
+        <text x="982" y="248" class="language-percent" text-anchor="end">2.7%</text>
         <rect x="602" y="257" width="350" height="6" rx="3" class="language-bar-bg" />
-        <rect x="602" y="257" width="11" height="6" rx="3" fill="#89e051" />
+        <rect x="602" y="257" width="10" height="6" rx="3" fill="#89e051" />
     </g>
     <line x1="30" y1="278" x2="982" y2="278" class="divider" />
-    <text x="30" y="302" class="footnote">Updated Aug 11, 2026 (Asia/Tokyo) · Public activity and owned repository languages.</text>
+    <text x="30" y="302" class="footnote">Updated Aug 13, 2026 (Asia/Tokyo) · Public activity and owned repository languages.</text>
 </svg>
