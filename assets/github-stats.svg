@@ -29,8 +29,8 @@
     <g>
         <line x1="30" y1="92" x2="560" y2="92" class="divider" />
         <text x="30" y="129" class="metric">Commits</text>
-        <text x="300" y="131" class="value" text-anchor="end">929</text>
-        <text x="430" y="131" class="value" text-anchor="end">414</text>
+        <text x="300" y="131" class="value" text-anchor="end">933</text>
+        <text x="430" y="131" class="value" text-anchor="end">418</text>
         <text x="550" y="131" class="value" text-anchor="end">39</text>
     </g>
     <g>
@@ -50,8 +50,8 @@
     <g>
         <line x1="30" y1="230" x2="560" y2="230" class="divider" />
         <text x="30" y="267" class="metric">Contributions</text>
-        <text x="300" y="269" class="value" text-anchor="end">944</text>
-        <text x="430" y="269" class="value" text-anchor="end">418</text>
+        <text x="300" y="269" class="value" text-anchor="end">948</text>
+        <text x="430" y="269" class="value" text-anchor="end">422</text>
         <text x="550" y="269" class="value" text-anchor="end">41</text>
     </g>
 
@@ -88,8 +88,8 @@
         <text x="620" y="248" class="language-name">Dockerfile</text>
         <text x="982" y="248" class="language-percent" text-anchor="end">2.7%</text>
         <rect x="602" y="257" width="350" height="6" rx="3" class="language-bar-bg" />
-        <rect x="602" y="257" width="9" height="6" rx="3" fill="#384d54" />
+        <rect x="602" y="257" width="10" height="6" rx="3" fill="#384d54" />
     </g>
     <line x1="30" y1="278" x2="982" y2="278" class="divider" />
-    <text x="30" y="302" class="footnote">Updated Sep 10, 2026 (Asia/Tokyo) · Public activity and owned repository languages.</text>
+    <text x="30" y="302" class="footnote">Updated Sep 17, 2026 (Asia/Tokyo) · Public activity and owned repository languages.</text>
 </svg>
